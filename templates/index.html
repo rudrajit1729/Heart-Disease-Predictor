@@ -26,6 +26,95 @@
         <!-- Text Area -->
     	<div class="ml-container">
     		<form action="{{ url_for('predict') }}" method="POST">
+                <p>1. Age (in years) eg. 34:</p>
+                <input class="form-input" type="text" name="age" required><br>
+                <div class="gender">
+                    <p>2. Gender:</p>
+                    <input class="form-input1" type="radio" id="male" name="sex" value="1" required>
+                        <label for="male">Male</label><br>
+                    <input class="form-input1" type="radio" id="female" name="sex" value="0" required>
+                        <label for="female">Female</label><br>
+                </div>
+                <div class="cptype">
+                    <p>3. Chest Pain Type:</p>
+                    <input class="form-input1" type="radio" id="type1" name="cp" value="0" required>
+                        <label for="type1">Typical Angina</label><br>
+                    <input class="form-input1" type="radio" id="type2" name="cp" value="1" required>
+                        <label for="type2">Atypical Angina</label><br>
+                    <input class="form-input1" type="radio" id="type3" name="cp" value="2" required>
+                        <label for="type3">Non Anginal Pain</label><br>
+                    <input class="form-input1" type="radio" id="type4" name="cp" value="3" required>
+                        <label for="type4">Asymptomatic</label><br>
+                </div>
+                <p>4. Resting Blood Pressure:</p>
+                <input class="form-input" type="text" name="trestbps" required><br>
+                <p>5. Serum Cholesterol (mg/dL):</p>
+                <input class="form-input" type="text" name="chol" required><br>
+                
+                <div class="fbs">
+                    <p>6. Is Fasting Blood Sugar > 120 mg/dL ?:</p>
+                    <input class="form-input1" type="radio" id="no" name="fbs" value="0" required>
+                        <label for="no">No</label><br>
+                    <input class="form-input1" type="radio" id="yes" name="fbs" value="1" required>
+                        <label for="yes">Yes</label><br>
+                </div>
+
+                <div class="restecg">
+                    <p>7. Resting Electrocardiographic Results:</p>
+                    <input class="form-input1" type="radio" id="recg1" name="restecg" value="0" required>
+                        <label for="recg1">Normal</label><br>
+                    <input class="form-input1" type="radio" id="recg2" name="restecg" value="1" required>
+                        <label for="recg2">ST-T Wave Abnormality</label><br>
+                    <input class="form-input1" type="radio" id="recg3" name="restecg" value="2" required>
+                        <label for="recg3">Left Ventricular Hypertrophy</label><br>
+                </div>  
+                <p>8. Maximum Heart Rate Achieved (eg. 150): </p>
+                <input class="form-input" type="text" name="thalach" required><br>
+                
+                <div class="exang">
+                <p>9. Exercise Induced Angina:</p>
+                <input class="form-input1" type="radio" id="ex0" name="exang" value="0" required>
+                    <label for="ex0">No</label><br>
+                <input class="form-input1" type="radio" id="ex1" name="exang" value="1" required>
+                    <label for="ex1">Yes</label><br>
+                </div>
+                <p>10. ST Depression Induced By Exercise Relative To Rest(Oldpeak):</p>
+                <input class="form-input" type="text" name="oldpeak" required><br>
+                <div class="slope">
+                    <p>11. The Slope Of The Peak Exercise ST Segment:</p>
+                    <input class="form-input1" type="radio" id="sl0" name="slope" value="0" required>
+                        <label for="sl0">Upsloping</label><br>
+                    <input class="form-input1" type="radio" id="sl1" name="slope" value="1" required>
+                        <label for="sl1">Flat</label><br>
+                    <input class="form-input1" type="radio" id="sl2" name="slope" value="2" required>
+                        <label for="sl2">Downsloping</label><br>
+                    </div>
+                               
+                <div class="novessel">
+                <p>12. Number Of Major Vessels Colored By Fluoroscopy:</p>
+                <input class="form-input1" type="radio" id="no0" name="ca" value="0" required>
+                    <label for="no0">0</label><br>
+                <input class="form-input1" type="radio" id="no1" name="ca" value="1" required>
+                    <label for="no1">1</label><br>
+                <input class="form-input1" type="radio" id="no2" name="ca" value="2" required>
+                    <label for="no2">2</label><br>
+                <input class="form-input1" type="radio" id="no3" name="ca" value="3" required>
+                    <label for="no3">3</label><br>
+                <input class="form-input1" type="radio" id="no4" name="ca" value="4" required>
+                    <label for="no4">4</label><br>
+                </div>
+                
+                <div class="thal">
+                    <p>13. Thalassemia:</p>
+                    <input class="form-input1" type="radio" id="thal1" name="thal" value="0" required>
+                        <label for="thal1">Normal</label><br>
+                    <input class="form-input1" type="radio" id="thal2" name="thal" value="1" required>
+                        <label for="thal2">Fixed</label><br>
+                    <input class="form-input1" type="radio" id="thal3" name="thal" value="2" required>
+                        <label for="thal3">Reversible Defect</label><br>
+                </div>           
+                
+                
         		<input type="submit" class="my-cta-button" value="Predict">
         	</form>
     	</div>
