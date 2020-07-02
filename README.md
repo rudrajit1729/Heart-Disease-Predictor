@@ -1,9 +1,9 @@
 # Heart-Disease-Predictor
 Treat Your Heart Right
 
-For live demo visit - 
+For live demo visit - https://heart-disease-bitninjas.herokuapp.com/
 
-Checkout video explanation at - 
+Checkout video explanation at - https://www.youtube.com/watch?v=qn2hcp8E76c
 
 A web application which uses Machine Learning models to predict the heart condition of a user by providing some inputs about the user's health like age, blood pressure, cholesterol level etc.
 
