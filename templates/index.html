@@ -4,8 +4,9 @@
     <head>
         <meta charset="utf-8">
         <title>Heart Disease Predictor</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='logo.ico') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+        <link rel="stylesheet" href="../static/styles.css?q=124898745">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
         <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 	    
@@ -25,94 +26,104 @@
         <!-- Text Area -->
     	<div class="ml-container">
     		<form action="{{ url_for('predict') }}" method="POST">
-                <p>1. Age (in years) eg. 34:</p>
+                <p>Age (in years) eg. 34:</p>
                 <input class="form-input" type="text" name="age" required><br>
+                
                 <div class="gender">
-                    <p>2. Gender:</p>
-                    <input class="form-input1" type="radio" id="male" name="sex" value="1" required>
-                        <label for="male">Male</label><br>
-                    <input class="form-input1" type="radio" id="female" name="sex" value="0" required>
-                        <label for="female">Female</label><br>
+                    <p>Gender:</p>
+                <select class="form-input align-center" name="sex" required="required">
+                        <option hidden disabled selected value> ---Select Gender --- </option>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                </select>
                 </div>
+
+                
                 <div class="cptype">
-                    <p>3. Chest Pain Type:</p>
-                    <input class="form-input1" type="radio" id="type1" name="cp" value="0" required>
-                        <label for="type1">Typical Angina</label><br>
-                    <input class="form-input1" type="radio" id="type2" name="cp" value="1" required>
-                        <label for="type2">Atypical Angina</label><br>
-                    <input class="form-input1" type="radio" id="type3" name="cp" value="2" required>
-                        <label for="type3">Non Anginal Pain</label><br>
-                    <input class="form-input1" type="radio" id="type4" name="cp" value="3" required>
-                        <label for="type4">Asymptomatic</label><br>
+                    <p>Chest Pain Type:</p>
+                <select class="form-input align-center" name="cp" required="required">
+                        <option hidden disabled selected value> ---Select Chest Pain Type --- </option>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non Anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                </select>
                 </div>
-                <p>4. Resting Blood Pressure:</p>
+
+                <p>Resting Blood Pressure:</p>
                 <input class="form-input" type="text" name="trestbps" required><br>
-                <p>5. Serum Cholesterol (mg/dL):</p>
+
+                <p>Serum Cholesterol (mg/dL):</p>
                 <input class="form-input" type="text" name="chol" required><br>
                 
+                
                 <div class="fbs">
-                    <p>6. Is Fasting Blood Sugar > 120 mg/dL ?:</p>
-                    <input class="form-input1" type="radio" id="no" name="fbs" value="0" required>
-                        <label for="no">No</label><br>
-                    <input class="form-input1" type="radio" id="yes" name="fbs" value="1" required>
-                        <label for="yes">Yes</label><br>
+                    <p>Is Fasting Blood Sugar > 120 mg/dL ?:</p>
+                <select class="form-input align-center" name="fbs" required="required">
+                        <option hidden disabled selected value> ---Select Yes/No --- </option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                </select>
                 </div>
 
                 <div class="restecg">
-                    <p>7. Resting Electrocardiographic Results:</p>
-                    <input class="form-input1" type="radio" id="recg1" name="restecg" value="0" required>
-                        <label for="recg1">Normal</label><br>
-                    <input class="form-input1" type="radio" id="recg2" name="restecg" value="1" required>
-                        <label for="recg2">ST-T Wave Abnormality</label><br>
-                    <input class="form-input1" type="radio" id="recg3" name="restecg" value="2" required>
-                        <label for="recg3">Left Ventricular Hypertrophy</label><br>
-                </div>  
-                <p>8. Maximum Heart Rate Achieved (eg. 150): </p>
+                    <p>Resting Electrocardiographic Results:</p>
+                <select class="form-input align-center" name="restecg" required="required">
+                        <option hidden disabled selected value> ---Select Resting ECG Result --- </option>
+                        <option value="0">Normal</option>
+                        <option value="1">ST-T Wave Abnormality</option>
+                        <option value="2">Left Ventricular Hypertrophy</option>
+                </select>
+                </div>
+
+                
+                <p>Maximum Heart Rate Achieved (eg. 150): </p>
                 <input class="form-input" type="text" name="thalach" required><br>
                 
                 <div class="exang">
-                <p>9. Exercise Induced Angina:</p>
-                <input class="form-input1" type="radio" id="ex0" name="exang" value="0" required>
-                    <label for="ex0">No</label><br>
-                <input class="form-input1" type="radio" id="ex1" name="exang" value="1" required>
-                    <label for="ex1">Yes</label><br>
+                    <p>Exercise Induced Angina:</p>
+                <select class="form-input align-center" name="exang" required="required">
+                        <option hidden disabled selected value> ---Select Yes/No --- </option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
                 </div>
-                <p>10. ST Depression Induced By Exercise Relative To Rest(Oldpeak):</p>
+                
+                <p>ST Depression Induced By Exercise Relative To Rest(Oldpeak):</p>
                 <input class="form-input" type="text" name="oldpeak" required><br>
+                
                 <div class="slope">
-                    <p>11. The Slope Of The Peak Exercise ST Segment:</p>
-                    <input class="form-input1" type="radio" id="sl0" name="slope" value="0" required>
-                        <label for="sl0">Upsloping</label><br>
-                    <input class="form-input1" type="radio" id="sl1" name="slope" value="1" required>
-                        <label for="sl1">Flat</label><br>
-                    <input class="form-input1" type="radio" id="sl2" name="slope" value="2" required>
-                        <label for="sl2">Downsloping</label><br>
-                    </div>
-                               
-                <div class="novessel">
-                <p>12. Number Of Major Vessels Colored By Fluoroscopy:</p>
-                <input class="form-input1" type="radio" id="no0" name="ca" value="0" required>
-                    <label for="no0">0</label><br>
-                <input class="form-input1" type="radio" id="no1" name="ca" value="1" required>
-                    <label for="no1">1</label><br>
-                <input class="form-input1" type="radio" id="no2" name="ca" value="2" required>
-                    <label for="no2">2</label><br>
-                <input class="form-input1" type="radio" id="no3" name="ca" value="3" required>
-                    <label for="no3">3</label><br>
-                <input class="form-input1" type="radio" id="no4" name="ca" value="4" required>
-                    <label for="no4">4</label><br>
+                    <p>The Slope Of The Peak Exercise ST Segment:</p>
+                <select class="form-input align-center" name="slope" required="required">
+                        <option hidden disabled selected value> ---Select Option --- </option>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
                 </div>
-                
-                <div class="thal">
-                    <p>13. Thalassemia:</p>
-                    <input class="form-input1" type="radio" id="thal1" name="thal" value="0" required>
-                        <label for="thal1">Normal</label><br>
-                    <input class="form-input1" type="radio" id="thal2" name="thal" value="1" required>
-                        <label for="thal2">Fixed</label><br>
-                    <input class="form-input1" type="radio" id="thal3" name="thal" value="2" required>
-                        <label for="thal3">Reversible Defect</label><br>
-                </div>           
-                
+
+                <div class="novessel">
+                    <p>Number Of Major Vessels Colored By Fluoroscopy:</p>
+                <select class="form-input align-center" name="ca" required="required">
+                        <option hidden disabled selected value> ---Select Option --- </option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+
+                 <div class="thal">
+                    <p>Thalassemia:</p>
+                <select class="form-input align-center" name="thal" required="required">
+                        <option hidden disabled selected value> ---Select Option --- </option>
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed</option>
+                        <option value="2">Reversible Defect</option>
+                    </select>
+                </div>                             
+                                         
                 
         		<input type="submit" class="my-cta-button" value="Predict">
         	</form>
