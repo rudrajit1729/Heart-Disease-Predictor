@@ -65,7 +65,9 @@ body{
 	height: 30%;
 	margin-bottom: 3%;
 	font-size: 14pt;
-
+	padding: 5px;
+	border-bottom: 1px;
+	border-style: groove;
 }
 .p{
 	font-size: 16pt;
