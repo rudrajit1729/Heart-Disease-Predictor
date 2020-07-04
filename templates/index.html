@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Heart Disease Predictor</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+        <link rel="stylesheet" href="../static/styles.css?q=124898745">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	    
+	</head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Heart ❤️ Disease Predictor</span></h2>
+            <div class='description'>
+    			<p>Treat your ❤️ right</p>
+    		</div>
+    	</div>
+
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+                <p>Age (in years) eg. 34:</p>
+                <input class="form-input" type="text" name="age" required><br>
+                
+                <div class="gender">
+                    <p>Gender:</p>
+                <select class="form-input align-center" name="sex" required="required">
+                        <option hidden disabled selected value> ---Select Gender --- </option>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                </select>
+                </div>
+
+                
+                <div class="cptype">
+                    <p>Chest Pain Type:</p>
+                <select class="form-input align-center" name="cp" required="required">
+                        <option hidden disabled selected value> ---Select Chest Pain Type --- </option>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non Anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                </select>
+                </div>
+
+                <p>Resting Blood Pressure:</p>
+                <input class="form-input" type="text" name="trestbps" required><br>
+
+                <p>Serum Cholesterol (mg/dL):</p>
+                <input class="form-input" type="text" name="chol" required><br>
+                
+                
+                <div class="fbs">
+                    <p>Is Fasting Blood Sugar > 120 mg/dL ?:</p>
+                <select class="form-input align-center" name="fbs" required="required">
+                        <option hidden disabled selected value> ---Select Yes/No --- </option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                </select>
+                </div>
+
+                <div class="restecg">
+                    <p>Resting Electrocardiographic Results:</p>
+                <select class="form-input align-center" name="restecg" required="required">
+                        <option hidden disabled selected value> ---Select Resting ECG Result --- </option>
+                        <option value="0">Normal</option>
+                        <option value="1">ST-T Wave Abnormality</option>
+                        <option value="2">Left Ventricular Hypertrophy</option>
+                </select>
+                </div>
+
+                
+                <p>Maximum Heart Rate Achieved (eg. 150): </p>
+                <input class="form-input" type="text" name="thalach" required><br>
+                
+                <div class="exang">
+                    <p>Exercise Induced Angina:</p>
+                <select class="form-input align-center" name="exang" required="required">
+                        <option hidden disabled selected value> ---Select Yes/No --- </option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                
+                <p>ST Depression Induced By Exercise Relative To Rest(Oldpeak):</p>
+                <input class="form-input" type="text" name="oldpeak" required><br>
+                
+                <div class="slope">
+                    <p>The Slope Of The Peak Exercise ST Segment:</p>
+                <select class="form-input align-center" name="slope" required="required">
+                        <option hidden disabled selected value> ---Select Option --- </option>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
+                </div>
+
+                <div class="novessel">
+                    <p>Number Of Major Vessels Colored By Fluoroscopy:</p>
+                <select class="form-input align-center" name="ca" required="required">
+                        <option hidden disabled selected value> ---Select Option --- </option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+
+                 <div class="thal">
+                    <p>Thalassemia:</p>
+                <select class="form-input align-center" name="thal" required="required">
+                        <option hidden disabled selected value> ---Select Option --- </option>
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed</option>
+                        <option value="2">Reversible Defect</option>
+                    </select>
+                </div>                             
+                                         
+                
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <p class='footer-description'>Developed by BitNinjas🦋</p>
+       </div>
+
+    </body>
+</html>
