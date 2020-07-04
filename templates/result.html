@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title>Heart Disease Predictor</title>
 		<link rel="shortcut icon" href="{{ url_for('static', filename='logo.ico') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 	</head>
@@ -26,7 +26,7 @@
 				<h1>Prediction: <span class='danger'>You have Heart Disease.</span></h1>
 				<img class="gif" src="{{ url_for('static', filename='sad.gif') }}" alt="Heart Disease Image">
 				<div class="gyan">
-					<h2 style="color: red;">Five easy steps for better heart condition: </h2>
+					<h2 style="color: red;">Tips for better heart condition: </h2>
 					<ul>
 						<li>Manage your blood pressure.</li>
 						<li>Manage cholesterol and triglycerides.</li>
